@@ -29,7 +29,7 @@ const io = new Server(server, {
 
 
 io.on('connection', (socket) => {
-  console.log('A user connected');
+  // console.log('A user connected');
 
   socket.on('setup', (userData) => {
     socket.join(userData._id)
@@ -52,9 +52,9 @@ io.on('connection', (socket) => {
       if (user._id == newMessageRecieved.sender._id) return;
       // io.sockets.to(user._id).emit("message recieved", newMessageRecieved);
       // io.sockets.in(user._id).emit('message recieved', newMessageRecieved);
-      io.emit('message recieved', newMessageRecieved);
+      // socket.in(user._id).emit("message recieved" , newMessageRecieved)
+      io.emit('message recieved', newMessageRecieved)
       
-
     });
   })
 
